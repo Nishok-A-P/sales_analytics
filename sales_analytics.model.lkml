@@ -8,6 +8,12 @@ include: "/views/*.view.lkml"                # include all views in the views/ f
 # # and define the joins that connect them together.
 #
 explore: sales {
+
+  access_filter: {
+    field: products.category
+    user_attribute: market
+  }
+
   join: customers {
     relationship: many_to_one
     sql_on: ${sales.customer_id} = ${customers.customer_id} ;;
