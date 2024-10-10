@@ -39,19 +39,23 @@ view: products {
   measure: average_price {
     type: average
     sql: ${TABLE}.price ;;
+    value_format: "#,##0.00"
   }
 
   measure: total_stock_quantity {
     type: sum
     sql: ${TABLE}.stock_quantity ;;
+    value_format: "#,##0.00"
   }
   measure: stock_turnover {
     type: sum
     sql: ${sales.quantity} / ${TABLE}.stock_quantity ;;
+    value_format: "#,##0.00"
   }
   measure: revenue_per_product {
     type: sum
     sql: ${sales.total_amount} ;;
     drill_fields: [product_id, name]
+    value_format: "#,##0.00"
   }
 }

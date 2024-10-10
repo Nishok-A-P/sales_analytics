@@ -20,6 +20,7 @@ view: leads {
   dimension: estimated_value {
     type: number
     sql: ${TABLE}.Estimated_Value ;;
+    value_format: "#,##0.00"
   }
   dimension: lead_source {
     type: string

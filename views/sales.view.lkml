@@ -34,6 +34,7 @@ view: sales {
   dimension: total_amount {
     type: number
     sql: ${TABLE}.Total_Amount ;;
+    value_format: "#,##0.00"
   }
   measure: count {
     type: count
@@ -41,26 +42,31 @@ view: sales {
   }
   measure: total_sales {
     type: count
+    value_format: "#,##0.00"
   }
 
   measure: total_revenue {
     type: sum
     sql: ${TABLE}.total_amount ;;
+    value_format: "#,##0.00"
   }
 
   measure: total_quantity_sold {
     type: sum
     sql: ${TABLE}.quantity ;;
+    value_format: "#,##0.00"
   }
 
   measure: average_sale_value {
     type: average
     sql: ${TABLE}.total_amount ;;
+    value_format: "#,##0.00"
   }
   measure: total_revenue_per_customer {
     type: sum
     sql: ${total_amount} ;;
     drill_fields: [customer_id]
+    value_format: "#,##0.00"
   }
 
   # ----- Sets of fields for drilling ------
