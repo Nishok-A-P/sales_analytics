@@ -17,6 +17,6 @@ application: explore_assistant {
     new_window: yes
     new_window_external_urls: ["https://developers.generativeai.google/*"]
     local_storage: yes
-    external_api_urls: ["https://explore-assistant-api-jioen247wa-uc.a.run.app "]
+    external_api_urls: ["https://us-central1-sqsh-looker-project.cloudfunctions.net/explore-assistant-api"]
   }
 }
