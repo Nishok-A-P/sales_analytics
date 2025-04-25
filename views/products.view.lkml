@@ -35,6 +35,11 @@ view: products {
   measure: total_products {
     type: count
   }
+  measure: price_1 {
+    type: sum
+    sql: ${TABLE}.Price ;;
+    value_format: "$#,##0.00"
+  }
 
   measure: average_price {
     type: average
