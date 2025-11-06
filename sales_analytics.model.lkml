@@ -45,3 +45,43 @@ explore: sales {
   description: "Explore sales performance along with customer, lead, product, and marketing insights."
 
 }
+
+
+explore: customers {
+  label: "Marketing Analysis"
+
+  access_filter: {
+    field: stores.location
+    user_attribute: market
+  }
+
+  join: transactions {
+    sql_on: ${customers.customer_id} = ${transactions.customer_id} ;;
+    relationship: one_to_many
+  }
+
+  join: interactions {
+    sql_on: ${customers.customer_id} = ${interactions.customer_id} ;;
+    relationship: one_to_many
+  }
+
+  join: marketing_products {
+    sql_on: ${transactions.product_id} = ${marketing_products.product_id} ;;
+    relationship: many_to_one
+  }
+
+  join: stores {
+    sql_on: ${transactions.store_id} = ${stores.store_id} ;;
+    relationship: many_to_one
+  }
+
+  join: campaigns {
+    sql_on: ${interactions.campaign_id} = ${campaigns.campaign_id} ;;
+    relationship: one_to_many
+  }
+
+  join: social_media_engagement {
+    sql_on: ${campaigns.campaign_id} = ${social_media_engagement.campaign_id} ;;
+    relationship: one_to_many
+  }
+}
